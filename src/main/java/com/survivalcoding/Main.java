@@ -2,11 +2,8 @@ package com.survivalcoding;
 
 public class Main {
     public static void main(String[] args) {
-        SCV scv = new SCV();
-        SCV scv2 = new SCV();
-
-        Medic medic = new Medic();
-        medic.treat(scv);
-        scv.repairTarget(scv2);
+        boolean a = Boolean.valueOf(true) == Boolean.valueOf(true);
+        boolean b = new Boolean(true) == new Boolean(true);
+        System.out.println(b);
     }
 }

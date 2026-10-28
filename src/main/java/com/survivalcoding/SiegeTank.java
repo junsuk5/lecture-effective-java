@@ -2,14 +2,14 @@ package com.survivalcoding;
 
 public class SiegeTank implements Repairable {
     private static final int MAX_HP = 150;
-    private int hp = MAX_HP;
+    private final Health health = new Health(MAX_HP);
 
     @Override
     public void repair(int amount) {
-        hp = Math.min(hp + amount, MAX_HP);
+        health.restore(amount);
     }
 
     public int getHp() {
-        return hp;
+        return health.getHp();
     }
 }

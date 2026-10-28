@@ -1,0 +1,32 @@
+@startuml
+scale 1
+
+interface Healable {
+    heal(int amount): void
+}
+
+interface Repairable {
+    repair(int amount): void
+}
+
+class Marine implements Healable {
+    health: Health
+}
+class Medic implements Healable {
+    health: Health
+}
+class SCV implements Healable, Repairable {
+    health: Health
+}
+class SiegeTank implements Repairable {
+    health: Health
+}
+class Vulture implements Repairable {
+health: Health
+}
+
+class Health {
+
+}
+
+@enduml
