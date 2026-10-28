@@ -34,8 +34,17 @@ public final class Health {
         return maxHp;
     }
 
-    public static void main(String[] args) {
-        String name = "홍길동";
-        String name2 = name.toLowerCase();
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Health health)) return false;
+
+        return maxHp == health.maxHp && currentHp == health.currentHp;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = maxHp;
+        result = 31 * result + currentHp;
+        return result;
     }
 }

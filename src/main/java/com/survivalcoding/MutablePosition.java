@@ -24,4 +24,18 @@ public class MutablePosition {
     public void setY(int y) {
         this.y = y;
     }
+
+    @Override
+    public final boolean equals(Object o) {
+        if (!(o instanceof MutablePosition that)) return false;
+
+        return x == that.x && y == that.y;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = x;
+        result = 31 * result + y;
+        return result;
+    }
 }

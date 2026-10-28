@@ -3,6 +3,9 @@ package com.survivalcoding;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class HealthTest {
@@ -36,5 +39,22 @@ class HealthTest {
     void damageStopsAtZero() {
         Health health = new Health(5, 60);
         assertEquals(0, health.damage(10).getHp());
+    }
+
+    @Test
+    @DisplayName("체력 30/60 두 개는 같다")
+    void sameHpAndMaxAreEqual() {
+        Health a = new Health(30, 60);
+        Health b = new Health(30, 60);
+        assertEquals(a, b);
+    }
+
+    @Test
+    @DisplayName("HashSet에 두 번 넣으면 크기 1")
+    void hashSetKeepsOne() {
+        Set<Health> set = new HashSet<>();
+        set.add(new Health(30, 60));
+        set.add(new Health(30, 60));
+        assertEquals(1, set.size());
     }
 }
