@@ -1,8 +1,8 @@
 package com.survivalcoding;
 
-public class Health {
+public final class Health {
     private final int maxHp;
-    private int currentHp;
+    private final int currentHp;
 
     public Health(int maxHp) {
         this(maxHp, maxHp);
@@ -16,15 +16,14 @@ public class Health {
         this.maxHp = maxHp;
     }
 
-    public void restore(int amount) {
+    public Health restore(int amount) {
         if (amount < 0) {
             throw new IllegalArgumentException("회복량은 0 이상이어야 합니다.");
         }
-        currentHp = Math.min(currentHp + amount, maxHp);
+        return new Health(Math.min(currentHp + amount, maxHp), maxHp);
     }
-
-    public void damage(int amount) {
-        currentHp = Math.max(currentHp - amount, 0);
+    public Health damage(int amount) {
+        return new Health(Math.max(currentHp - amount, 0), maxHp);
     }
 
     public int getHp() {
@@ -33,5 +32,10 @@ public class Health {
 
     public int getMaxHp() {
         return maxHp;
+    }
+
+    public static void main(String[] args) {
+        String name = "홍길동";
+        String name2 = name.toLowerCase();
     }
 }

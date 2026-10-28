@@ -2,7 +2,7 @@ package com.survivalcoding;
 
 public class Marine implements Healable {
     private static final int MAX_HP = 40;
-    private final Health health;
+    private Health health;
 
     Marine(Health health) {
         if (health == null) {
@@ -21,7 +21,7 @@ public class Marine implements Healable {
 
     @Override
     public void heal(int amount) {
-        health.restore(amount);
+        health = health.restore(amount);
     }
 
     public int getHp() {
